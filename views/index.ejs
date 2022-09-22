@@ -1,0 +1,52 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h4 for="taskName">Add Task</h4>
+      <form action="/tasks" method="post">
+        <div class="input-field">
+          <!-- <label for="taskName">New Task</label> -->
+          <input type="text" name="taskName" id="taskName" />
+        </div>
+        <button class="btn">Submit</button>
+      </form>
+
+      <div class="task-list content">
+        <h2>All Tasks</h2>
+        <ul class="tasks">
+          <% if(tasks.length > 0) {%> <% tasks.forEach(task => { %>
+          <div class="task-row">
+            <li class="task"><%= task.taskName %></li>
+            <a class="delete" data-doc="<%= task._id %>">delete</a>
+          </div>
+          <% }) %> <% }else{ %>
+          <p>No Task</p>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script>
+    const trashcan = document.querySelectorAll("a.delete");
+    console.log(trashcan);
+    trashcan.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        //   console.log(e);
+        const endpoint = `/tasks/${item.dataset.doc}`;
+        console.log(endpoint);
+        fetch(endpoint, {
+          method: "DELETE",
+        })
+          .then((response) => response.json())
+          .then((data) => (window.location.href = data.redirect))
+          .catch((err) => console.log(err));
+      });
+    });
+  </script>
+</html>
