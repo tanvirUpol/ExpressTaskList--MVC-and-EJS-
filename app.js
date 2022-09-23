@@ -9,8 +9,9 @@ const taskRoutes = require("./routes/tasksRoutes");
 const app = express();
 
 //connect to mongo DB
+//add your username and password here
 const dbURI =
-  "mongodb+srv://Upol:Upol1234@cluster0.j5xzxvp.mongodb.net/TLDB?retryWrites=true&w=majority";
+  "mongodb+srv://<Username>:<Password>@cluster0.j5xzxvp.mongodb.net/TLDB?retryWrites=true&w=majority";
 mongoose
   .connect(dbURI)
   .then((result) => {

@@ -4,6 +4,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style.css" />
+    <script
+      src="https://kit.fontawesome.com/b91ff44235.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Document</title>
   </head>
   <body>
@@ -19,11 +23,14 @@
 
       <div class="task-list content">
         <h2>All Tasks</h2>
+        <br />
         <ul class="tasks">
           <% if(tasks.length > 0) {%> <% tasks.forEach(task => { %>
           <div class="task-row">
             <li class="task"><%= task.taskName %></li>
-            <a class="delete" data-doc="<%= task._id %>">delete</a>
+            <a class="delete" data-doc="<%= task._id %>"
+              ><i class="fa-solid fa-trash"></i
+            ></a>
           </div>
           <% }) %> <% }else{ %>
           <p>No Task</p>

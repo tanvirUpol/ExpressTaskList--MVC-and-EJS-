@@ -19,12 +19,27 @@ li {
 
 form {
   display: flex;
-  min-width: 200px;
+  /* min-width: 200px; */
+  margin-bottom: 50px;
+  margin-top: 10px;
 }
 
+form input {
+  width: 300px;
+  padding: 10px 12px;
+  margin-right: 15px;
+}
+
+form .btn {
+  padding: 5px 12px;
+  background-color: rgb(42, 63, 165);
+  color: #fff;
+  border: none;
+}
 .task-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
   margin-bottom: 5px;
 }
 
@@ -34,5 +49,16 @@ form {
 
 .tasks li {
   background-color: rgb(215, 222, 222);
-  min-width: 200px;
+  min-width: 300px;
+  width: 100%;
+  margin-right: 8px;
+  padding: 10px 12px;
+  margin-bottom: 5px;
+}
+
+.task-row i {
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(219, 219, 219);
+  border-radius: 50%;
 }
